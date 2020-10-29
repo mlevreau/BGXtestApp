@@ -16,7 +16,7 @@ class DeviceActivity : AppCompatActivity() {
     private var bluetoothGatt: BluetoothGatt? = null
     private var TAG:String = "MyActivity"
 
-    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_device)
@@ -27,7 +27,7 @@ class DeviceActivity : AppCompatActivity() {
 
     }
 
-    private val gattCallback = @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
+    private val gattCallback = @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     object : BluetoothGattCallback(){
         override fun onConnectionStateChange(
             gatt: BluetoothGatt,
@@ -105,7 +105,7 @@ class DeviceActivity : AppCompatActivity() {
         return result.toString()
     }
 
-    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onStop() {
         super.onStop()
         bluetoothGatt?.discoverServices()
