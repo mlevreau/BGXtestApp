@@ -2,19 +2,17 @@ package fr.isen.levreau.bgxtestapp
 
 import android.bluetooth.*
 import android.os.Build
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_device.*
-import kotlinx.android.synthetic.main.activity_device_listcell.*
-import kotlinx.android.synthetic.main.activity_device_listcell.device_name
 
 class DeviceActivity : AppCompatActivity() {
-
     private var bluetoothGatt: BluetoothGatt? = null
     private var TAG:String = "MyActivity"
+    //private lateinit var adapter: BleServiceAdapter
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +48,8 @@ class DeviceActivity : AppCompatActivity() {
                 }
             }
         }
+
+        @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
         override fun onCharacteristicRead(
             gatt: BluetoothGatt?,
             characteristic: BluetoothGattCharacteristic,
@@ -65,6 +65,7 @@ class DeviceActivity : AppCompatActivity() {
             }
         }
 
+        @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
         override fun onCharacteristicWrite(
             gatt: BluetoothGatt?,
             characteristic: BluetoothGattCharacteristic,
@@ -80,6 +81,7 @@ class DeviceActivity : AppCompatActivity() {
             }
         }
 
+        @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
         override fun onCharacteristicChanged(
             gatt: BluetoothGatt?,
             characteristic: BluetoothGattCharacteristic
