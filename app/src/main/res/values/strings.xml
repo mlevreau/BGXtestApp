@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">BGXtestApp</string>
+
+    <string name="refresh_button">Refresh</string>
+    <string name="list_title">List of detected devices</string>
+    <string name="device_name">Name</string>
+    <string name="device_mac">Mac address</string>
+    <string name="statut_title">Device\'s status</string>
+    <string name="title_name">Name of device</string>
+    <string name="device_statut">Status</string>
+    <string name="ble_title">"Start scan "</string>
+</resources>
