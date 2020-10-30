@@ -36,7 +36,7 @@ class BleAdapter(
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: DevicesViewHolder, position: Int) {
-        holder.deviceName.text = scanResults[position].device.name?: "Nom inconnu"
+        holder.deviceName.text = scanResults[position].device.name?: "Unnamed"
         holder.deviceMac.text = scanResults[position].device.address
         holder.layout.setOnClickListener{
             deviceClickListener.invoke(scanResults[position].device)
