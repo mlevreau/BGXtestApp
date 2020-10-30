@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.activity_device.*
 class DeviceActivity : AppCompatActivity() {
     private var bluetoothGatt: BluetoothGatt? = null
     private var TAG:String = "MyActivity"
-    //private lateinit var adapter: BleServiceAdapter
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,52 +48,6 @@ class DeviceActivity : AppCompatActivity() {
             }
         }
 
-        @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-        override fun onCharacteristicRead(
-            gatt: BluetoothGatt?,
-            characteristic: BluetoothGattCharacteristic,
-            status: Int
-        ) {
-            val value = characteristic.getStringValue(0)
-            Log.e(
-                "TAG",
-                "onCharacteristicRead: " + value + " UUID " + characteristic.uuid.toString()
-            )
-            runOnUiThread {
-                bleServiceList.adapter?.notifyDataSetChanged()
-            }
-        }
-
-        @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-        override fun onCharacteristicWrite(
-            gatt: BluetoothGatt?,
-            characteristic: BluetoothGattCharacteristic,
-            status: Int
-        ) {
-            val value = characteristic.value
-            Log.e(
-                "TAG",
-                "onCharacteristicWrite: " + value + " UUID " + characteristic.uuid.toString()
-            )
-            runOnUiThread {
-                bleServiceList.adapter?.notifyDataSetChanged()
-            }
-        }
-
-        @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-        override fun onCharacteristicChanged(
-            gatt: BluetoothGatt?,
-            characteristic: BluetoothGattCharacteristic
-        ) {
-            val value = byteArrayToHexString(characteristic.value)
-            Log.e(
-                "TAG",
-                "onCharacteristicChanged: " + value + " UUID " + characteristic.uuid.toString()
-            )
-            runOnUiThread {
-                bleServiceList.adapter?.notifyDataSetChanged()
-            }
-        }
     }
 
     private fun byteArrayToHexString(array: ByteArray): String {
