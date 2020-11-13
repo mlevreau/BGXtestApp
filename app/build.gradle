@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "fr.isen.levreau.bgxtestapp"
-        minSdkVersion 16
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -35,4 +35,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.thoughtbot:expandablerecyclerview:1.3'
 }

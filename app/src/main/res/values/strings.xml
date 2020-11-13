@@ -7,8 +7,11 @@
     <string name="device_mac">Mac address</string>
     <string name="statut_title">Device\'s status</string>
     <string name="title_name">Name of device</string>
-    <string name="device_statut">Status</string>
+    <string name="device_statut">Waiting for connexion</string>
     <string name="ble_title">"Start scan "</string>
     <string name="message_text">"Text "</string>
     <string name="send_button">"SEND"</string>
+    <string name="arrow">"arrow"</string>
+    <string name="uuid">"Uuid"</string>
+    <string name="serviceName">"Generic Acces"</string>
 </resources>

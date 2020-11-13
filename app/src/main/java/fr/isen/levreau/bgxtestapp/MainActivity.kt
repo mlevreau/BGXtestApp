@@ -17,13 +17,11 @@ import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_device_listcell.*
 import kotlinx.android.synthetic.main.activity_main.*
 
-@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
 class MainActivity : AppCompatActivity() {
 
     companion object {
@@ -46,8 +44,6 @@ class MainActivity : AppCompatActivity() {
     private val isBLEEnable: Boolean
         get() = bluetoothAdapter?.isEnabled == true
 
-
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -76,9 +72,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    private fun scanLeDevice(enable: Boolean) {
-        bluetoothAdapter?.bluetoothLeScanner?.apply {
+        private fun scanLeDevice(enable: Boolean) {
+            bluetoothAdapter?.bluetoothLeScanner?.apply {
             if (enable) {
                 Log.w("MainActivity", "Scanning for devices")
                 handler.postDelayed({
@@ -96,8 +91,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private val leScanCallBack = @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    object : ScanCallback() {
+    private val leScanCallBack = object : ScanCallback() {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             super.onScanResult(callbackType, result)
             Log.w("BLE", "${result.device}")
@@ -109,7 +103,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun initBLEScan() {
 
         progressBar.visibility = View.VISIBLE
@@ -132,7 +125,6 @@ class MainActivity : AppCompatActivity() {
         scanLeDevice(true)
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun pause() {
         super.onStop()
 

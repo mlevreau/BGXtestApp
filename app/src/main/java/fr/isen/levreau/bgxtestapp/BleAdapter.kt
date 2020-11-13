@@ -2,12 +2,10 @@ package fr.isen.levreau.bgxtestapp
 
 import android.bluetooth.BluetoothDevice
 import android.bluetooth.le.ScanResult
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_device_listcell.view.*
 
@@ -25,7 +23,6 @@ class BleAdapter(
 
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DevicesViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_device_listcell, parent, false)
 
@@ -34,7 +31,6 @@ class BleAdapter(
 
     override fun getItemCount(): Int = scanResults.size
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: DevicesViewHolder, position: Int) {
         holder.deviceName.text = scanResults[position].device.name?: "Unnamed"
         holder.deviceMac.text = scanResults[position].device.address
@@ -43,7 +39,6 @@ class BleAdapter(
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun addDeviceToList(result: ScanResult){
         val index = scanResults.indexOfFirst { it.device.address == result.device.address }
         if (index != -1) {
